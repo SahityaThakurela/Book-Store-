@@ -1,0 +1,22 @@
+{
+  "name": "bookstore",
+  "version": "1.0.0",
+  "description": "CRUD operations on BookStore",
+  "keywords": [
+    "Api",
+    "CRUD",
+    "BookStore"
+  ],
+  "license": "ISC",
+  "author": "Sahitya Thakurela",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node src/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongoose": "^9.4.1"
+  }
+}
