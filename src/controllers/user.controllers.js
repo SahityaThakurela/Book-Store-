@@ -17,6 +17,7 @@ const addBook = async(req, res) => {
         data: bookData
     })
 }
+//try catch 
 
 
 // updateBook
@@ -68,7 +69,7 @@ const deleteBook = async(req, res) => {
 const listAllBook = async(req, res) => {
     try {
         const showall = await User.find({})
-        console.log(showall)
+        // console.log(showall)
 
         res.status(200).json({
             message: "Successlly find the list",
@@ -79,6 +80,7 @@ const listAllBook = async(req, res) => {
         console.log(error)
     }
 }
+
 
     
 

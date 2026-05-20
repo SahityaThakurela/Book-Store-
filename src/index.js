@@ -1,15 +1,18 @@
-import dotenv from 'dotenv'
+import 'dotenv/config'      //feedback
 import express from 'express'
 import connectDb from './db/index.js'
 import Router from './routes/user.routes.js'
 
-dotenv.config({
-    path: "./.env"
-})
 
 const app = express()
 
 app.use(express.json())
+
+app.get("/", (req, res) => {
+    return res.json({
+        message: "HOME page"
+    })
+})
 app.use("/books", Router)
 
 //input lena h book ka
@@ -20,15 +23,14 @@ app.use("/books", Router)
 //list of all books dekh ske
 
 
-
+//connecting to db
 connectDb()
-.then(() => {
-    app.listen(process.env.PORT, () => {
-        console.log(`App is listening at port: ${process.env.PORT}`)
+    .then(() => {
+        app.listen(process.env.PORT,() => {
+            console.log(`App is listiening at PORT : ${process.env.PORT}`)
+        })
     })
-})
-.catch((error) => {
-    console.log(error)
-    throw error;
-})
-
+    .catch((error) => {
+        console.log(error)
+        throw error;
+    })
