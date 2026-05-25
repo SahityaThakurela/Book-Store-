@@ -1,23 +1,24 @@
 import { User } from "../models/user.model.js";
 
-// addBook
-const addBook = async(req, res) => {
+//addbook
+//  taking input of all nessesary details once 
 
+const addBook = async(req,res) => {
     const {name, authName, pages, price, bookCount} = req.body
-    const bookData = await User.create({
-        name,
+
+    const bookadd = await User.create({
+        name, 
         authName, 
         pages, 
         price, 
         bookCount
     })
-
     return res.status(200).json({
-        message: "Book is Added",
-        data: bookData
+        message: "Book Added Successfully",
+        data: bookadd
     })
 }
-//try catch 
+
 
 
 // updateBook
@@ -25,7 +26,7 @@ const updateBook = async(req, res) => {
     try {
         const {name, authName, pages, price, bookCount} = req.body
         
-        const updatedata = await User.findOne({name: name})
+        const updatedata = await User.findOne({name: name}) // this query search in whole database
 
         if(!updatedata) return res.status(404).json({message: "Book Name not found"})
 
